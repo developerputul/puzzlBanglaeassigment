@@ -65,9 +65,6 @@
 
                                 <a href="{{ route('delete.product',$item->id) }}" class="btn btn-danger" 
                                     title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
-
-                                <a href="{{ route('edit.category',$item->id) }}" class="btn btn-warning" 
-                                    title="Details Page"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                         @endforeach

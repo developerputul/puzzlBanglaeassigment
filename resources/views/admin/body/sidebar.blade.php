@@ -19,7 +19,6 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -33,7 +32,6 @@
                 </li>
             </ul>
         </li>
-
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -47,8 +45,6 @@
                 </li>
             </ul>
         </li>
-
-        
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -61,15 +57,6 @@
                 <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
                 </li>
             </ul>
-        </li>
-
-
-        <li>
-            <a href="" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
-                </div>
-                <div class="menu-title">Support</div>
-            </a>
         </li>
     </ul>
     <!--end navigation-->

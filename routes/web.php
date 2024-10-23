@@ -39,12 +39,8 @@ Route::middleware(['auth',])->group(function(){
 
     Route::get('/admin/dashboard',[AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout',[AdminController::class, 'AdminLogout'])->name('admin.logout');
-    // Route::get('/admin/profile',[AdminController::class, 'AdminProfile'])->name('admin.profile');
-    // Route::post('/admin/profile/store',[AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
-    // Route::get('/admin/change/password',[AdminController::class, 'AdminChangepassword'])->name('admin.change.password');
-    // Route::post('/admin/update/password',[AdminController::class, 'AdminUpdatepassword'])->name('update.password');
-
-
+   
+    
 //All Category Route
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/all/category', 'AllCategory')->name('all.category');
@@ -75,14 +71,8 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/add/product', 'AddProduct')->name('add.product');
     Route::post('/store/product', 'StoreProduct')->name('store.product');
     Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
-
-
     Route::post('/update/product', 'UpdateProduct')->name('update.product');
     Route::post('/update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
-    Route::post('/update/product/multiimage', 'UpdateProductMultiimage')->name('update.product.multiimage');
-    Route::get('/product/multiimage/delete/{id}', 'MultiImageDelete')->name('product.multiimage.delete');
-    Route::get('/product/inactive/{id}', 'ProductInactive')->name('product.inactive');
-    Route::get('/product/active/{id}', 'ProductActive')->name('product.active');
     Route::get('/delete/product/{id}', 'ProductDelete')->name('delete.product');
     
 });

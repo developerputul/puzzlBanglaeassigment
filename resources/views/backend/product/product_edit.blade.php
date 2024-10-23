@@ -23,7 +23,7 @@
           <h5 class="card-title">Edit Product</h5>
           <hr/>
 
-        <form id="myForm" method="POST" action="#">
+          <form id="myForm" method="POST" action="{{ route('update.product') }}">
             @csrf
 
           <input type="hidden" name="id" value="{{ $products->id }}">
@@ -45,41 +45,7 @@
                     </textarea>
                 </div>
                 </div>
-
-                {{-- Main Image Thambnail Update --}}
-      <div class="page-content">
-        <h6 class="mb-0 text-uppercase">Update Main Image Thambnail</h6>
-        <br>
-
-        <div class="card">
-          <form method="POST" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">
-            @csrf
-
-            <input type="hidden" name="id" value="{{ $products->id }}">
-            <input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">
-
-          <div class="card-body">
-
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Chose Thambnail Image</label>
-              <input name="product_thambnail" class="form-control" type="file" id="formFile">
-            </div>
-
-            <div class="mb-3">
-              <label for="formFile" class="form-label"></label>
-              <img src="{{ asset($products->product_thambnail) }}" style="width: 100px; height:100px;">
-            </div>
-            <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
-           </div>
-
-          </form>
-        </div>
-      </div>
- {{--End Main Image Thambnail Update --}}
-
                </div>
-
-
 
                <div class="col-lg-4">
                 <div class="border border-3 p-4 rounded">
@@ -131,9 +97,39 @@
       </div>
     </form>
   </div>
-
 </div>
 
+
+ {{-- Main Image Thambnail Update --}}
+ <div class="page-content">
+  <h6 class="mb-0 text-uppercase">Update Main Image Thambnail</h6>
+  <br>
+
+  <div class="card">
+    <form method="POST" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">
+      @csrf
+
+      <input type="hidden" name="id" value="{{ $products->id }}">
+      <input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">
+
+    <div class="card-body">
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Chose Thambnail Image</label>
+        <input name="product_thambnail" class="form-control" type="file" id="formFile">
+      </div>
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label"></label>
+        <img src="{{ asset($products->product_thambnail) }}" style="width: 100px; height:100px;">
+      </div>
+      <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+     </div>
+
+    </form>
+  </div>
+</div>
+{{--End Main Image Thambnail Update --}}
  
 
 
@@ -225,36 +221,6 @@
 		}
 	}
 </script>
-
-
- <script> 
-  $(document).ready(function(){
-   $('#multiImg').on('change', function(){ //on file input change
-      if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
-      {
-          var data = $(this)[0].files; //this file data
-           
-          $.each(data, function(index, file){ //loop though each file
-              if(/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)){ //check supported file type
-                  var fRead = new FileReader(); //new filereader
-                  fRead.onload = (function(file){ //trigger function on successful read
-                  return function(e) {
-                      var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
-                  .height(80); //create image element 
-                      $('#preview_img').append(img); //append image to output element
-                  };
-                  })(file);
-                  fRead.readAsDataURL(file); //URL representing the file's data.
-              }
-          });
-           
-      }else{
-          alert("Your browser doesn't support File API!"); //if File API is absent
-      }
-   });
-  });
-   
-  </script> 
 
 
 
